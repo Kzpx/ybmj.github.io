@@ -1,11 +1,10 @@
 ---
-title: Hash
+title: Hash——MD5 and SHA
 date: 2018-04-08 21:59:01
 comments: true
 categories:
 - 信息安全
 - 加密
-- MD5 and SHA
 ---
 
 # MD5 : Message-Digest
@@ -20,6 +19,7 @@ MD5亦有应用于部份网上赌场以保证赌博的公平性，原理是系�
 再在结果开出后将未加密的字串显示给玩家，玩家便可利用MD5工具加密验证该字串是否吻合。
 —— From Wikipedia
 
+<!--more-->
 ## 缺陷
 2009年，我国研究人员在$2^{20.96}$的时间复杂度下破解了MD5的碰撞抵抗。
 
