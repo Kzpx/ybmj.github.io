@@ -22,6 +22,7 @@ categories:
 
 ## 模板
 ```cpp
+vector<pair<int,int> > G[maxn];
 void addedge(int u,int v,int w){
     G[u].push_back(make_pair(w,v));
     //G[v].push_back(make_pair(w,u));
