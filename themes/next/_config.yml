@@ -343,9 +343,9 @@ font:
 # MathJax Support
 mathjax:
   enable: true
-  per_page: true
-  cnd: https://cdn.bootcss.com/mathjax/2.7.4/latest.js
-  # cdn: //cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML
+  per_page: false
+  # cnd: https://cdn.bootcss.com/mathjax/2.7.4/latest.js
+  cdn: //cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # Han Support docs: https://hanzi.pro/
 han: false
