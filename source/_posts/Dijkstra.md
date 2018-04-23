@@ -22,31 +22,36 @@ categories:
 
 ## 模板
 ```cpp
-vector<pair<int,int> > G[maxn];
-void addedge(int u,int v,int w){
-    G[u].push_back(make_pair(w,v));
-    //G[v].push_back(make_pair(w,u));
+typedef pair<int, int> pii;
+const int maxn = 100;
+int d[maxn];
+vector<pii> G[maxn];
+
+void addedge(int u, int v, int w) {
+    G[u].push_back(make_pair(w, v));
+    // G[v].push_back(make_pair(w,u));
 }
-void dijkstra(int s){
-    for(int i=0;i<n;i++) d[i] = INF;
+void dijkstra(int s, int n) {
+    for (int i = 0; i < n; i++) d[i] = INF;
     d[s] = 0;
-    priority_queue<pii,vector<pii>,greater<pii> > pq;
-    pq.push(P(0,s));
-    while(!pq.empty()){
+    priority_queue<pii, vector<pii>, greater<pii> > pq;
+    pq.push(mp(0, s));
+    while (!pq.empty()) {
         pii now = pq.top();
         pq.pop();
         int v = now.second;
-        if(d[v] < now.first) continue;      //剪枝！ 重要
-        for(int i=0;i<G[v].size();i++){
+        if (d[v] < now.first) continue;  //剪枝！ 重要
+        for (int i = 0; i < G[v].size(); i++) {
             pii e = G[v][i];
             int to = e.second;
-            if(d[to] > d[v] + e.first){
+            if (d[to] > d[v] + e.first) {
                 d[to] = d[v] + e.first;
-                pq.push(pii(d[to],to));
+                pq.push(pii(d[to], to));
             }
         }
     }
 }
+
 ```
 
 ## 练习题

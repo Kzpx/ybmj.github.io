@@ -41,29 +41,32 @@ $$dp[i][k] = dp[i][k]\  ||\  (dp[i][t]\  \&\&\  dp[t][k])$$
 
 ## 模板
 ```cpp
+const int maxn = 100;
+int dp[maxn][maxn];
 // dp初始化为正无穷
-void addedge(int u,int v,int w){
+void addedge(int u, int v, int w) {
     dp[u][v] = w;
     // dp[v][u] = w;
 }
-void floyd_warshall(){
-    for(int i=0;i<n;i++) dp[i][i] = 0;
-    for(int t=0;t<n;t++){
-        for(int i=0;i<n;i++){
-            for(int k=0;k<n;k++){
-                if(dp[i][k] > dp[i][t] + dp[t][k]){
+bool floyd_warshall(int n) {
+    for (int i = 0; i < n; i++) dp[i][i] = 0;
+    for (int t = 0; t < n; t++) {
+        for (int i = 0; i < n; i++) {
+            for (int k = 0; k < n; k++) {
+                if (dp[i][k] > dp[i][t] + dp[t][k]) {
                     dp[i][k] = dp[i][t] + dp[t][k];
                 }
             }
         }
     }
-    for(int i=0;i<n;i++){
-        if(dp[i][i] < 0){
-            return false;       //exist negative circle
+    for (int i = 0; i < n; i++) {
+        if (dp[i][i] < 0) {
+            return false;  // exist negative circle
         }
     }
     return true;
 }
+
 ```
 
 ## 练习题

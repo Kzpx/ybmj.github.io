@@ -23,23 +23,32 @@ categories:
 
 ## 模板
 ```cpp
-void addedge(int u,int v,int w){
-    edges.push_back(Edge(u,v,w));
+const int maxn = 10;
+struct Edge {
+    int u, v, w;
+    Edge(int u = 0, int v = 0, int w = 0) : u(u), v(v), w(w) {}
+    bool operator<(const Edge &A) const { return w < A.w; }
+};
+vector<Edge> edges;
+int par[maxn];
+void addedge(int u, int v, int w) {
+    edges.push_back(Edge(u, v, w));
+    // edges.push_back(Edge(v, u, w));
 }
 
-int find(int x){ return par[x] == x ? x : find(par[x]);}
+int find(int x) { return par[x] == x ? x : find(par[x]); }
 
-int kruskal(){
+int kruskal(int n) {
     int ans = 0;
-    for(int i=0;i<n;i++) par[i] = i;
-    sort(edges.begin(),edges.end());     //按权值排序
+    for (int i = 0; i < n; i++) par[i] = i;
+    sort(edges.begin(), edges.end());  //按权值排序
     int cnt = 0;
-    for(int i=0;i<edges.size();i++){
-        if(cnt >= n-1) break;
+    for (int i = 0; i < edges.size(); i++) {
+        if (cnt >= n - 1) break;
         Edge &now = edges[i];
         int x = find(now.u);
         int y = find(now.v);
-        if(x != y){
+        if (x != y) {
             cnt++;
             par[x] = y;
             ans += now.w;
