@@ -1,7 +1,7 @@
 ---
 title: Kruskal
 comments: true
-data: 2018-03-09 15:20:36
+date: 2018-03-09 15:20:36
 categories:
 - ACM
 - 图论

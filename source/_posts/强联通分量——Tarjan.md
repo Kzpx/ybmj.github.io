@@ -1,7 +1,7 @@
 ---
 title: 强联通分量——Tarjan
 comments: true
-data: 2018-03-09 15:13:59
+date: 2018-03-09 15:13:59
 categories:
 - ACM
 - 图论

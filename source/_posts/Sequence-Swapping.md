@@ -22,11 +22,11 @@ $-10^3 \le$ 权值 $\le 10^3$
 # 分析
 首先需要注意到的是权值有正有负，这样就很难贪心了。
 
-我们可以这么考虑，对于第i个左括号，如果它向前交换k个右括号,那么第i-1个做括号就可往前**多**交换k个。
+我们可以这么考虑，对于第i个左括号，如果它向右交换k个右括号,那么第i-1个左括号就可往右**多**交换k个。
 
 根据这个思想就可以想到是个记忆化搜索的过程
 
-$dp[i][k]:$ 表示第i个左括号向前至多交换k个右括号所得到的最大价值。
+$dp[i][k]:$ 表示第i个左括号向右至多交换k个右括号所得到的最大价值。
 
 所以这里有一堆预处理等着你
 # 代码
@@ -50,10 +50,10 @@ const int maxn = 1e3+5;
 int num[maxn];
 char ch[maxn];
 ll dp[maxn][maxn];
-int pre[maxn][maxn];      // pre[i][k]: 第i个左括号向前交换k个右括号得到的价值
+int pre[maxn][maxn];      // pre[i][k]: 第i个左括号向右交换k个右括号得到的价值
 int x[maxn];        //x[i] 表示i位置开始的后缀和（右括号的数量
-vector<pair<int,int> >le;  // le[i]: 第i个左括号的位置和他前面右括号的数量
-vector<pair<int,int> > ri[maxn];   //ri[i]第i个左括号前面 每个右括号的位置和权值
+vector<pair<int,int> >le;  // le[i]: 第i个左括号的位置和他右边右括号的数量
+vector<pair<int,int> > ri[maxn];   //ri[i]第i个左括号右边 每个右括号的位置和权值
 
 
 ll dfs(int pos,int cnt){ // pos : i, cnt : k

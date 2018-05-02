@@ -1,7 +1,7 @@
 ---
 title: Dijkstra
 comments: true
-data: 2018-03-09 15:18:14
+date: 2018-03-09 15:18:14
 categories:
 - ACM
 - 图论
