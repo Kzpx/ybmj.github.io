@@ -16,7 +16,7 @@ categories:
 从起点开始，依次把连通的路放到优先队列里（权值小的在top),然后每次取top，相当于
 连接这条边，再把与边的另一点所连接的边都放到优先队列里。（把已经连接的边看作一个整体）
 
-**注意**: 图中不能存在负环，否则就炸了（无限次更新）
+**注意**: 图中不能存在负权边
 
 **时间复杂度** : $O(E \times logV)$
 
@@ -27,7 +27,7 @@ const int maxn = 100;
 int d[maxn];
 vector<pii> G[maxn];
 
-void addedge(int u, int v, int w) {
+inline void addedge(int u, int v, int w) {
     G[u].push_back(make_pair(w, v));
     // G[v].push_back(make_pair(w,u));
 }

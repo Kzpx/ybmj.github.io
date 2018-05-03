@@ -22,7 +22,8 @@ categories:
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"print to console":{
+	
+    "print to console":{
 		"prefix": "inc",
 		"body": [
 			"//ybmj",
@@ -33,7 +34,11 @@ categories:
 			"#define lson_len (len - (len >> 1))",
 			"#define rson_len (len >> 1)",
 			"#define pb(x) push_back(x)",
+			"#define clr(a, x) memset(a, x, sizeof(a))",
+			"#define mp(x, y) make_pair(x, y)",
 			"typedef long long ll;",
+			"typedef pair<int,int> pii;",
+			"typedef pair<ll,ll> pll;",
 			"const int INF = 0x3f3f3f3f;",
 			"const int NINF = 0xc0c0c0c0;",
 			"",

@@ -32,11 +32,17 @@ $$dp[i][k] = min(dp[i][k],dp[i][t]+dp[t][k])$$
 
 ## 模板
 ```cpp
-void addedge(int u,int v,int w){
+struct Edge{
+    int u,v,w;
+    Edge(int u,int v,int w):u(u),v(v),w(w) {}
+};
+vector<Edge> edges;
+
+inline void addedge(int u,int v,int w){
     edges.push_back(Edge(u,v,w));
     // edges.push_back(Edge(v,u,w));
 }
-bool bellman_ford(int s){
+bool bellman_ford(int s,int n){
     for(int i=0;i<n;i++) d[i] = INF;
     d[s] = 0;
     int cnt = 0;
@@ -44,16 +50,61 @@ bool bellman_ford(int s){
         if(cnt > n-1) return false;     // exist negative circle
         cnt++;
         bool update = false;
-        for(int i=0;i<E;i++){
-            int from = edge[i].from;
-            int to = edge[i].to;
-            if(d[to] > d[from] + edge[i].w){
-                d[to] = d[from] + edge[i].w;
-                par[to] = from;         // record path
+        for(int i=0;i<edges.size();i++){
+            int from = edges[i].from;
+            int to = edges[i].to;
+            if(d[to] > d[from] + edges[i].w){
+                d[to] = d[from] + edges[i].w;
+                // par[to] = from;         // record path
                 update = true;
             }
         }
         if(update == false) break;
+    }
+    return true;
+}
+```
+```cpp
+vector<pii> G[maxn];
+bool vis[maxn];
+int inq[maxn]; // 记录入队次数
+int d[maxn];
+
+inline void init(int n){
+    for(int i=0;i<=n;i++) G[i].clear();
+}
+inline void addedge(int u,int v,int w){
+    G[u].pb(mp(v,w));
+    // G[v].pb(mp(u,w));
+}
+bool spfa(int s,int n){
+    for(int i=0;i<=n;i++) {
+        d[i] = INF;
+        inq[i] = 0;
+        vis[i] = 0;
+    }
+    d[s] = 0;
+    queue<int> q;
+    q.push(s);
+    vis[s] = true;
+    inq[s]++;
+    while(!q.empty()){
+        int u = q.front();
+        q.pop();
+        vis[u] = false;
+        for(auto V : G[u]){
+            int v = V.first;
+            int w = V.second;
+            if(d[v] > d[u] + w){
+                d[v] = d[u] + w;
+                if(!vis[v]){
+                    vis[v] = true;
+                    inq[v]++;
+                    q.push(v);
+                    if(inq[v] >= n) return false;
+                }
+            }
+        }
     }
     return true;
 }
