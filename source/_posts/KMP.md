@@ -39,24 +39,29 @@ struct MP{
     int back[maxn];
 
     void getfail(string line){
-        back[0] = back[1] = 0;
-        for(int i=1;i<line.size();i++){
-            int k = back[i];
-            while(k && line[i] != line[k]) k = back[k];
-            back[i+1] = line[i] == line[k] ? k+1: 0;
+        int i,k;
+        k = back[0] = -1;
+        i = 0;
+        while(i < line.size()){
+            while(k != -1 && line[i] != line[k]) k = back[k];
+            back[++i] = ++k;
         }
     }
     int match(string T,string P){
-        int k = 0;
+        int i = 0,k = 0;
+        int ret = 0;
         getfail(P);
-        for(int i=0;i<T.size();i++){
-            while(k && T[i] != P[k]) k = back[k];
-            if(T[i] == P[k]) k++;
-            if(k == P.size()) return i-k+1;
+        while(i < T.size()){
+            while(k != -1 && T[i] != P[k]) k = back[k];
+            ++i;++k;
+            if(k >= P.size()){
+                ret++;
+                k = back[k];
+            }
         }
-        return -1;
+        return ret;
     }
-}
+};
 ```
 # 题目
 ## Period UVA - 1371 back数组的应用
