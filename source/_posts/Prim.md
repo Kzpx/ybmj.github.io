@@ -1,7 +1,7 @@
 ---
 title: Prim
 comments: true
-data: 2018-04-04 11:20:36
+date: 2018-04-04 11:20:36
 categories:
 - ACM
 - 图论

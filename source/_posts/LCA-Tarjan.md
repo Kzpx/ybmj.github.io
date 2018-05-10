@@ -1,7 +1,7 @@
 ---
 title: LCA---Tarjan
 comments: true
-data: 2018-03-28 11:23:45
+date: 2018-03-28 11:23:45
 categories:
 - ACM
 - 图论

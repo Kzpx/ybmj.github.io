@@ -1,7 +1,7 @@
 ---
 title: Manacher
 comments: true
-data: 2018-03-09 15:22:15
+date: 2018-03-09 15:22:15
 categories:
 - ACM
 - 字符串
