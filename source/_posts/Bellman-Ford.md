@@ -64,50 +64,6 @@ bool bellman_ford(int s,int n){
     return true;
 }
 ```
-```cpp
-vector<pii> G[maxn];
-bool vis[maxn];
-int inq[maxn]; // 记录入队次数
-int d[maxn];
 
-inline void init(int n){
-    for(int i=0;i<=n;i++) G[i].clear();
-}
-inline void addedge(int u,int v,int w){
-    G[u].pb(mp(v,w));
-    // G[v].pb(mp(u,w));
-}
-bool spfa(int s,int n){
-    for(int i=0;i<=n;i++) {
-        d[i] = INF;
-        inq[i] = 0;
-        vis[i] = 0;
-    }
-    d[s] = 0;
-    queue<int> q;
-    q.push(s);
-    vis[s] = true;
-    inq[s]++;
-    while(!q.empty()){
-        int u = q.front();
-        q.pop();
-        vis[u] = false;
-        for(auto V : G[u]){
-            int v = V.first;
-            int w = V.second;
-            if(d[v] > d[u] + w){
-                d[v] = d[u] + w;
-                if(!vis[v]){
-                    vis[v] = true;
-                    inq[v]++;
-                    q.push(v);
-                    if(inq[v] >= n) return false;
-                }
-            }
-        }
-    }
-    return true;
-}
-```
 
 ## 练习题
