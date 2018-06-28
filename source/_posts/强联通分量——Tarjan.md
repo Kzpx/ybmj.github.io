@@ -170,14 +170,14 @@ belong数组： 表示每个点属于哪一个强连通分量。
 ```cpp
 vector<int> G[maxn];        //存图
 int scc;    //强连通分量的数量
-int index;  // 时间戳
+int idx;  // 时间戳
 int top;    // 栈顶
 bool instack[maxn];
 int dfn[maxn],low[maxn],belong[maxn],Stack[maxn];
 // int num[maxn];      // 每个强连通分量的数量。 1 ~ scc
 // int maps[maxn];      //缩点之后 每个点对应的新点的标号
 void Tarjan(int u){
-    dfn[u] = low[u] = ++index;
+    dfn[u] = low[u] = ++idx;
     instack[u] = true;
     Stack[top++] = u;
 
@@ -193,8 +193,9 @@ void Tarjan(int u){
     if(dfn[u] == low[u]){
         ++scc;
         int cnt = 0;
+        int now;
         while(top > 0){
-            register int now = Stack[--top];
+            now = Stack[--top];
             instack[now] = false;
             belong[now] = u;
             ++cnt;
@@ -210,7 +211,7 @@ void Tarjan(int u){
 void solve(int n){
     memset(instack,0,sizeof(instack));
     memset(dfn,0,sizeof(dfn));
-    scc = index = top = 0;
+    scc = idx = top = 0;
     for(int i=1;i<=n;i++){      // 点的标号从1开始
         if(!dfn[i])
             Tarjan(i);
