@@ -112,7 +112,7 @@ bool vis[maxn];
 int par[maxn], dist[maxn], ANS[maxn];
 
 int find(int u) { return u == par[u] ? u : par[u] = find(par[u]); }
-void unite(int u, int v) {      	
+void merge(int u, int v) {      	
     u = find(u);
 	v = find(v);
 	if (u != v) { par[v] = u; }
@@ -145,7 +145,7 @@ void Tarjan(int u, int fa) {
 	for (auto V : G[u]) {
 		if (fa != V.first) {
 			Tarjan(V.first, u);
-			unite(u, V.first);   // 注意合并顺序，一定是v合并到u上
+			merge(u, V.first);   // 注意合并顺序，一定是v合并到u上
 		}
 	}
 	for (auto V : Q[u]) {
