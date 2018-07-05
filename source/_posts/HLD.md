@@ -104,6 +104,7 @@ struct HLD {
         }
         if(dep[u] > dep[v]) swap(u,v);
         ret += query(id[u],id[v]);
+        return ret;
     }
 };
 ```
