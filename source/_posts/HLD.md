@@ -55,6 +55,15 @@ id[u]	保存树中每个节点剖分以后的新编号（DFS的执行顺序）
 
 ![](http://ozrmo3j0k.bkt.clouddn.com/hld2.png)
 
+
+**注意**
+
+数据结构维护的是树链剖分后的序列（id序列）
+
+当题目中给的是边权时，要将边权下放变成点权（下放给深度大的点）
+
+查询的时候要注意最后公共的lca是不算进去的，因为的权值是它与它父亲的边权。
+
 ## 模板
 ```cpp
 const int maxn = 100;
@@ -95,6 +104,22 @@ struct HLD {
                 link(v,v);
         }
     }
+
+    void update(int u,int v,int w) {} // 数据结构
+    int query(int u,int v) {}         // 数据结构
+
+    void update_path(int u,int v,int w){
+        while(top[u] != top[v]){
+            if(dep[top[u]] < dep[top[v]]) swap(u,v);
+            update(id[top[u]],id[u],w);
+            u = par[top[u]];
+        }
+        // if(u == v) return;   // 边权变点权
+        if(dep[u] > dep[v]) swap(u,v);
+        update(id[u],id[v],w);
+        // update(id[u] + 1,id[v],w);  // 边权变点权
+
+    }
     int query_path(int u,int v){
         int ret = 0;
         while(top[u] != top[v]){
@@ -102,9 +127,12 @@ struct HLD {
             ret += query(id[top[u]],id[u]);
             u = par[top[u]];
         }
+        // if(u == v) return ret;   // 边权变点权
         if(dep[u] > dep[v]) swap(u,v);
         ret += query(id[u],id[v]);
+        // ret += query(id[u] + 1,id[v]);  // 边权变点权
         return ret;
     }
+
 };
 ```
