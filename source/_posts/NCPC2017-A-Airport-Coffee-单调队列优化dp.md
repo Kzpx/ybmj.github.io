@@ -29,6 +29,15 @@ $$ cost(i,k) =\left\{
 (\frac{a*r - b*r - pos[k]}{a} + dp[k]) + \frac{pos[i]}{a}       &      & {a*t + b*r < a[i] - a[k]}
 \end{array} \right. $$
 
+$$ F^{HLLC}=\left\{
+\begin{array}{rcl}
+F_L       &      & {0      <      S_L}\\
+F^*_L     &      & {S_L \leq 0 < S_M}\\
+F^*_R     &      & {S_M \leq 0 < S_R}\\
+F_R       &      & {S_R \leq 0}
+\end{array} \right. $$
+
+
 发现只要维护三个单调队列即可, 但是实际上只需要维护中间那个.
 
 对于第一种情况,他在上一个店里买了咖啡,到当前店的时候还没开始喝,那么他必然在当前店不会再买咖啡
