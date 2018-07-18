@@ -22,26 +22,14 @@ categories:
 $$dp[i] = min \{ dp[k] + cost(i,k) \}, k \in [0,i-1]$$
 
 
-$$ cost(i,k) =\left\{
+$$cost(i,k) =\left\{
 \begin{array}{rcl}
-(\frac{- pos[k]}{a} + dp[k])+ \frac{pos[i]}{a}     &      & {a[i] - a[k] < a * t }\\
-(\frac{b*t - a*t - pos[k]}{b} + dp[k]) + \frac{pos[i]}{b}     &      & {a*t \leq a[i] - a[k] \leq a*t + b*r}\\
+(\frac{- pos[k]}{a} + dp[k])+ \frac{pos[i]}{a}     &      & {a[i] - a[k] < a * t }\\\\
+(\frac{b*t - a*t - pos[k]}{b} + dp[k]) + \frac{pos[i]}{b}     &      & {a*t \leq a[i] - a[k] \leq a*t + b*r}\\\\
 (\frac{a*r - b*r - pos[k]}{a} + dp[k]) + \frac{pos[i]}{a}       &      & {a*t + b*r < a[i] - a[k]}
-\end{array} \right. $$
+\end{array} \right.$$
 
-$$ F^{HLLC}=\left\{
-\begin{array}{rcl}
-F_L       &      & {0      <      S_L}\\
-F^*_L     &      & {S_L \leq 0 < S_M}\\
-F^*_R     &      & {S_M \leq 0 < S_R}\\
-F_R       &      & {S_R \leq 0}
-\end{array} \right. $$
 
-$$f(n)= \{
-\begin{array}{rcl}
-n/2, & \text{if n is even}\\
-3n+1, & \text{if n is odd}
-\end{array}$$
 
 
 发现只要维护三个单调队列即可, 但是实际上只需要维护中间那个.
