@@ -11,7 +11,7 @@ categories:
 来源: [cf 602d](http://codeforces.com/problemset/problem/602/D)
 
 
-##　分析
+## 分析
 相邻两个元素的L(h)是最大的。
 
 单调栈预处理每个区间所覆盖的区间即可。

@@ -11,7 +11,7 @@ categories:
 # 题意
 来源： HDU - 4734
 
-For a decimal number x with n digits $(A_n A_{n-1} ... A_2 A_1)$, we define its weight as $F(x) = A_n * 2^{n-1} + A_n-1 * 2^{n-2} + ... + A_1 * 1$. Now you are given two numbers A and B, please calculate how many numbers are there between 0 and B, inclusive, whose weight is no more than F(A).
+For a decimal number x with n digits $(A_n A_{n-1} ... A_2 A_1)$, we define its weight as $F(x) = A_n \times 2^{n-1} + A_n-1 \times 2^{n-2} + ... + A_1 \times 1$. Now you are given two numbers A and B, please calculate how many numbers are there between 0 and B, inclusive, whose weight is no more than F(A).
 
 # 分析
 $dp[i][sta]$ 表示枚举到第i位，还有sta可用。
