@@ -24,11 +24,15 @@ $$dp[i] = min \{ dp[k] + cost(i,k) \}, k \in [0,i-1]$$
 $cost(i,k)$ 有三种情况
 
 $$\begin{cases}
-(\frac{- pos[k]}{a} + dp[k])+ \frac{pos[i]}{a} \quad {a[i] - a[k] < a * t }\\\\
-(\frac{b*t - a*t - pos[k]}{b} + dp[k]) + \frac{pos[i]}{b} \quad {a*t \leq a[i] - a[k] \leq a*t + b*r}\\\\
-(\frac{a*r - b*r - pos[k]}{a} + dp[k]) + \frac{pos[i]}{a} \quad {a*t + b*r < a[i] - a[k]}
-\end{cases} $$
+    (\frac{-pos[k]}{a} + dp[k])+ \frac{pos[i]}{a} \quad {a[i] - a[k] < a \times t }\\\\
+    (\frac{b\times t - a\times t - pos[k]}{b} + dp[k]) + \frac{pos[i]}{b} \quad {a\times t \leq a[i] - a[k] \leq a\times t + b\times r}\\\\
+    (\frac{a\times r - b\times r - pos[k]}{a} + dp[k]) + \frac{pos[i]}{a} \quad {a\times t + b\times r < a[i] - a[k]}
+    \end{cases} $$
 
+$$\begin{cases}
+        x_1 = x_{1,0} + \frac{a_2}{(a_1,a_2)}\times t\\\\
+        {x_2 = x_{2,0} - \frac{a_1}{(a_1,a_2)}\times t}
+        \end{cases}$$
 
 
 
