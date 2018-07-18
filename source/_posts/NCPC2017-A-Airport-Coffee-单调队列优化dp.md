@@ -21,9 +21,9 @@ categories:
 
 $$dp[i] = min \{ dp[k] + cost(i,k) \}, k \in [0,i-1]$$
 
+$cost(i,k)$ 有三种情况
 
-$$ cost(i,k) =
-\begin{cases}
+$$\begin{cases}
 (\frac{- pos[k]}{a} + dp[k])+ \frac{pos[i]}{a} \quad {a[i] - a[k] < a * t }\\\\
 (\frac{b*t - a*t - pos[k]}{b} + dp[k]) + \frac{pos[i]}{b} \quad {a*t \leq a[i] - a[k] \leq a*t + b*r}\\\\
 (\frac{a*r - b*r - pos[k]}{a} + dp[k]) + \frac{pos[i]}{a} \quad {a*t + b*r < a[i] - a[k]}
