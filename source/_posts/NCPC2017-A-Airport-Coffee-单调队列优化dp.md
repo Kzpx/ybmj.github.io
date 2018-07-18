@@ -37,10 +37,11 @@ F^*_R     &      & {S_M \leq 0 < S_R}\\
 F_R       &      & {S_R \leq 0}
 \end{array} \right. $$
 
-$$f(n)=\begin{cases}
+$$f(n)= \{
+\begin{array}{rcl}
 n/2, & \text{if n is even}\\
 3n+1, & \text{if n is odd}
-\end{cases}$$
+\end{array}$$
 
 
 发现只要维护三个单调队列即可, 但是实际上只需要维护中间那个.
