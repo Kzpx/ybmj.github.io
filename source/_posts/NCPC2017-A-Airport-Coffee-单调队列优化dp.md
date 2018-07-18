@@ -39,7 +39,7 @@ F_R       &      & {S_R \leq 0}
 
 $$f(n)=\begin{cases}
 n/2, & \text{if n is even}\\
-3n+1, & \text{if n is odd}\\
+3n+1, & \text{if n is odd}
 \end{cases}$$
 
 
