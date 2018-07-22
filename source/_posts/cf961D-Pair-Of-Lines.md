@@ -4,7 +4,8 @@ date: 2018-04-05 15:55:15
 comments: true
 categories:
 - ACM
-- 随机算法
+- 数学
+- 随机概率
 ---
 
 # 题意
