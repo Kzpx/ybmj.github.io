@@ -16,7 +16,6 @@ categories:
 [学习博客](https://zhuanlan.zhihu.com/p/40505277)
 
 
-
 ### 系数表示法与点值表示法
 
 $f(x) = ax^2 + bx^1 + c$
