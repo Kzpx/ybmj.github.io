@@ -164,12 +164,15 @@ int main() {
         int len = 1;
         while (len < len1 * 2 || len < len2 * 2)
             len <<= 1;  // len > len1 + len2
-        for (int i = 0; i < len1; i++)
-            x1[i] = Complex(a[len1 - 1 - i] - '0', 0);
-        for (int i = len1; i < len; i++) x1[i] = Complex(0, 0);
+        for(int i=0;i<len;i++){
+            sum[i] = 0;
+            x1[i] = Complex(0, 0);
+            x2[i] = Complex(0, 0);
+        }
+        for (int i = 0; i < len1; i++) 
+            x1[i] = Complex(a[i] - '0', 0);
         for (int i = 0; i < len2; i++)
-            x2[i] = Complex(b[len2 - 1 - i] - '0', 0);
-        for (int i = len2; i < len; i++) x2[i] = Complex(0, 0);
+            x2[i] = Complex(b[i] - '0', 0);
         fft(x1, len, 1);
         fft(x2, len, 1);
         for (int i = 0; i < len; i++) x1[i] = x1[i] * x2[i];
@@ -178,7 +181,7 @@ int main() {
             sum[i] = int(x1[i].x + 0.5);
         }
         while (sum[len] == 0 && len > 0) len--;
-        for (int i = len; i >= 0; i--) printf("%d", sum[i]);
+        for (int i = 0; i <= len; i++) printf("%d", sum[i]);
         puts("");
     }
 }
