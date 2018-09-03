@@ -9,8 +9,10 @@ categories:
 ---
 
 ## 题意
-$x \ opt \ y =\left\{\begin{aligned}x+y&,&x<y \\\\
-                x-y&,&x≥y\end{aligned}\right.$
+$$x \ opt \ y = \begin{cases}
+             x+y&, &x<y \\\\
+                x-y&,&x≥y
+            \end{cases}$$
 
 现在给定一个长为 n 的数列 a 和一个长为 m 的数列 b ，接下来有 q 次询问。每次询问给定一个数字 c
 
