@@ -501,3 +501,142 @@ int main() {
     }
 }
 ```
+# 维护循环节
+
+### 题意
+You have $N$ integers $A_1,A_2,…,A_N$. You are asked to write a program to receive and execute two kinds of instructions:
+
+- $C$ $a$ $b$ means performing $A_i=(A_i^2mod2018)$ for all Ai such that $a≤i≤b$.
+- $Q$ $a$ $b$ means query the sum of $A_a,A_{a+1},…,A_b$. Note that the sum is not taken modulo 2018.
+
+$1 \leq n, Q \leq 50000$
+### 分析
+每个数模2018的最大周期是6. 所以更新6次之后一定进入循环节。
+
+所以对于每个结点，我们要维护一个长度为6的循环节。
+
+如果更新不足6次，则直接暴力更新到叶子结点。 更新到第6次，说明进入循环节，此时维护循环节即可。
+
+需要注意的是在$pushup$的时候要更新 “次数”。
+
+详见代码
+
+### 代码
+```cpp
+// ybmj
+#include <bits/stdc++.h>
+using namespace std;
+#define lson (rt << 1)
+#define rson (rt << 1 | 1)
+#define lson_len (len - (len >> 1))
+#define rson_len (len >> 1)
+#define pb(x) push_back(x)
+#define clr(a, x) memset(a, x, sizeof(a))
+#define mp(x, y) make_pair(x, y)
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+#define my_unique(a) a.resize(distance(a.begin(), unique(a.begin(), a.end())))
+#define my_sort_unique(c) (sort(c.begin(), c.end())), my_unique(c)
+const double PI = acos(-1.0);
+const int INF = 0x3f3f3f3f;
+const int NINF = 0xc0c0c0c0;
+const int maxn = 5e4 + 5;
+const int mod = 2018;
+int a[maxn];
+int sum[maxn << 2][6], p[maxn << 2], lazy[maxn << 2], cnt[maxn << 2];
+
+inline void pushup(int rt) {
+    cnt[rt] = min(cnt[lson], cnt[rson]);  // 记得更新次数
+    if (cnt[rt] < 5) {
+        sum[rt][0] = sum[lson][p[lson]] +
+                     sum[rson][p[rson]];  //  如果cnt[i] < 5, 那么p[i] = 0
+        return;
+    }
+    p[rt] = 0;
+    for (int i = 0; i < 6; i++)  // 更新整个循环节
+        sum[rt][i] =
+            sum[lson][(p[lson] + i) % 6] + sum[rson][(p[rson] + i) % 6];
+}
+inline void pushdown(int rt) {
+    if (!lazy[rt]) return;
+    lazy[lson] += lazy[rt];
+    lazy[rson] += lazy[rt];
+    (p[lson] += lazy[rt]) %= 6;
+    (p[rson] += lazy[rt]) %= 6;
+    lazy[rt] = 0;
+}
+void build(int rt, int l, int r) {
+    p[rt] = lazy[rt] = cnt[rt] = 0;
+    if (l == r) {
+        sum[rt][0] = a[l];
+        return;
+    }
+    int mid = l + r >> 1;
+    build(lson, l, mid);
+    build(rson, mid + 1, r);
+    pushup(rt);
+}
+void update(int rt, int l, int r, int L, int R) {
+    if (l == r) {  //  进循环节前暴力更新到叶子
+        cnt[rt]++;
+        if (cnt[rt] < 5) {
+            sum[rt][0] = sum[rt][0] * sum[rt][0] % mod;
+        } else if (cnt[rt] == 5) {
+            sum[rt][0] = sum[rt][0] * sum[rt][0] % mod;
+            for (int i = 1; i < 6; i++)
+                sum[rt][i] = sum[rt][i - 1] * sum[rt][i - 1] % mod;
+        } else
+            (++p[rt]) %= 6;
+        return;
+    }
+    if (L <= l && R >= r && cnt[rt] >= 5) {  // 进入循环节后才可以直接返回
+        lazy[rt]++;
+        (++p[rt]) %= 6;
+        return;
+    }
+    pushdown(rt);
+    int mid = l + r >> 1;
+    if (L <= mid) update(lson, l, mid, L, R);
+    if (R >= mid + 1) update(rson, mid + 1, r, L, R);
+    pushup(rt);
+}
+int query(int rt, int l, int r, int L, int R) {
+    if (L <= l && R >= r) return sum[rt][p[rt]];
+    pushdown(rt);
+    int ret = 0;
+    int mid = l + r >> 1;
+    if (L <= mid) ret += query(lson, l, mid, L, R);
+    if (R >= mid + 1) ret += query(rson, mid + 1, r, L, R);
+    return ret;
+}
+int main() {
+    //  /*
+#ifndef ONLINE_JUDGE
+    freopen("1.in", "r", stdin);
+    freopen("1.out", "w", stdout);
+#endif
+    //  */
+    std::ios::sync_with_stdio(false);
+    int T, kase = 1;
+    scanf("%d", &T);
+    while (T--) {
+        int n;
+        scanf("%d", &n);
+        for (int i = 1; i <= n; i++) scanf("%d", a + i);
+        build(1, 1, n);
+        int Q;
+        scanf("%d", &Q);
+        char op[2];
+        int l, r;
+        printf("Case #%d:\n", kase++);
+        while (Q--) {
+            scanf("%s%d%d", op, &l, &r);
+            if (op[0] == 'Q')
+                printf("%d\n", query(1, 1, n, l, r));
+            else
+                update(1, 1, n, l, r);
+        }
+    }
+}
+```
