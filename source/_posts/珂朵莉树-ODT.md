@@ -10,7 +10,7 @@ categories:
 [原文链接](https://www.cnblogs.com/yzhang-rp-inf/p/9443659.html)
 
 
-珂朵莉树 ： Old driver tree.
+珂朵莉树 ： Old Driver Tree.
 
 ODT 是一种基于随机数据的暴力数据结构 
 
