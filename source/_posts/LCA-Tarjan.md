@@ -150,7 +150,7 @@ void Tarjan(int u, int fa) {
 	}
 	for (auto V : Q[u]) {
 		if (vis[V.first] == true) {
-			ANS[V.second] = find(V.second); // 公共祖先为par[v]
+			ANS[V.second] = find(V.first); // 公共祖先为par[v]
 		}
 	}
 }
