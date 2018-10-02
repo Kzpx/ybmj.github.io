@@ -79,32 +79,15 @@ $$
 $$
 ```
 ---
-
-\[ 
-\left|\begin{array}{cccc} 
-    1 &    6    & 9 \\\\
-    7 &    90   & f(x)\\\\ 
-    9 & \psi(x) & g(x) 
-\end{array}\right| 
-\]
-```
-\[ 
-\left|\begin{array}{cccc} 
-    1 &    6    & 9 \\\\ 
-    7 &    90   & f(x)\\\\ 
-    9 & \psi(x) & g(x) 
-\end{array}\right| 
-\]
-```
-
-\[ 
-\left(\begin{array}{cccc} 
-    1 &    6    & 9 \\\\ 
-    7 &    90   & f(x)\\\\ 
-    9 & \psi(x) & g(x) 
-\end{array}\right)
-\]
-
+$$
+ \left|
+ \begin{matrix}
+   1 & 2 & 3 \\\\
+   4 & 5 & 6 \\\\
+   7 & 8 & 9
+  \end{matrix}
+  \right| \tag{3}
+$$
 $$
  \left(
  \begin{matrix}
