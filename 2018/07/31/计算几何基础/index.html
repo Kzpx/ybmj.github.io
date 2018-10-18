@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="基础知识极坐标在平面内取一个定点$O$，叫极点，引一条射线$Ox$，叫做极轴，再选定一个长度单位和角度的正方向（通常取逆时针方向）。对于平面内任何一点$M$，用$ρ$表示线段$OM$的长度（有时也用$r$表示），$θ$表示从$Ox$到$OM$的角度，$ρ$叫做点$M$的极径，$θ$叫做点$M$的极角，有序数对$(ρ,θ)$就叫点$M$的极坐标，这样建立的坐标系叫做极坐标系。通常情况下，$M$的极径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算几何基础">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/计算几何基础/index.html">
+<meta property="og:site_name" content="YBMJ">
+<meta property="og:description" content="基础知识极坐标在平面内取一个定点$O$，叫极点，引一条射线$Ox$，叫做极轴，再选定一个长度单位和角度的正方向（通常取逆时针方向）。对于平面内任何一点$M$，用$ρ$表示线段$OM$的长度（有时也用$r$表示），$θ$表示从$Ox$到$OM$的角度，$ρ$叫做点$M$的极径，$θ$叫做点$M$的极角，有序数对$(ρ,θ)$就叫点$M$的极坐标，这样建立的坐标系叫做极坐标系。通常情况下，$M$的极径">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ozrmo3j0k.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://ozrmo3j0k.bkt.clouddn.com/DeepinScreenshot_select-area_20180801182043.png">
+<meta property="og:image" content="http://ozrmo3j0k.bkt.clouddn.com/2.jpg">
+<meta property="og:image" content="http://ozrmo3j0k.bkt.clouddn.com/4.PNG">
+<meta property="og:image" content="http://ozrmo3j0k.bkt.clouddn.com/Geometry_2.jpg">
+<meta property="og:image" content="http://ozrmo3j0k.bkt.clouddn.com/5.PNG">
+<meta property="og:image" content="http://ozrmo3j0k.bkt.clouddn.com/6.PNG">
+<meta property="og:updated_time" content="2018-10-18T05:10:17.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算几何基础">
+<meta name="twitter:description" content="基础知识极坐标在平面内取一个定点$O$，叫极点，引一条射线$Ox$，叫做极轴，再选定一个长度单位和角度的正方向（通常取逆时针方向）。对于平面内任何一点$M$，用$ρ$表示线段$OM$的长度（有时也用$r$表示），$θ$表示从$Ox$到$OM$的角度，$ρ$叫做点$M$的极径，$θ$叫做点$M$的极角，有序数对$(ρ,θ)$就叫点$M$的极坐标，这样建立的坐标系叫做极坐标系。通常情况下，$M$的极径">
+<meta name="twitter:image" content="http://ozrmo3j0k.bkt.clouddn.com/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/31/计算几何基础/"/>
+
+
+
+
+
+  <title>计算几何基础 | YBMJ</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7ef548798a5d4d7cd4cc669aab269784";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YBMJ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/31/计算几何基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YBMJ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YBMJ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算几何基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-31T15:49:57+00:00">
+                2018-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/数学/计算几何/" itemprop="url" rel="index">
+                    <span itemprop="name">计算几何</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/31/计算几何基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/31/计算几何基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h3 id="极坐标"><a href="#极坐标" class="headerlink" title="极坐标"></a>极坐标</h3><p>在平面内取一个定点$O$，叫极点，引一条射线$Ox$，叫做极轴，再选定一个长度单位和角度的正方向（通常取逆时针方向）。对于平面内任何一点$M$，用$ρ$表示线段$OM$的长度（有时也用$r$表示），$θ$表示从$Ox$到$OM$的角度，$ρ$叫做点$M$的极径，$θ$叫做点$M$的极角，有序数对$(ρ,θ)$就叫点$M$的极坐标，这样建立的坐标系叫做极坐标系。通常情况下，$M$的极径坐标单位为$1$（长度单位），极角坐标单位为$rad$（或°）。</p>
+<p><strong>与直角坐标的变换</strong></p>
+<p>$r = \sqrt{y^2 + x^2}$</p>
+<p>$\theta = atan2(y,x)$</p>
+<p>atan2是已将象限纳入考量的反正切函数,单位是弧度。</p>
+<h3 id="三角形"><a href="#三角形" class="headerlink" title="三角形"></a>三角形</h3><h4 id="余弦公式"><a href="#余弦公式" class="headerlink" title="余弦公式"></a>余弦公式</h4><p>$c = \sqrt{a^2 + b^2 - 2ab\times cos(C)}$</p>
+<p>$cos(C) = \frac{a^2 + b^2 - c^2}{2ab}$</p>
+<h4 id="正弦公式"><a href="#正弦公式" class="headerlink" title="正弦公式"></a>正弦公式</h4><p>$\frac{a}{sin(A)} = \frac{b}{sin(B)} = \frac{c}{sin(C)} = 2R = D$</p>
+<h3 id="向量的减法"><a href="#向量的减法" class="headerlink" title="向量的减法"></a>向量的减法</h3><p>$\vec{c} = \vec{a} + (-\vec{b})$</p>
+<p><img src="http://ozrmo3j0k.bkt.clouddn.com/1.jpg" alt=""></p>
+<h3 id="数量积-点乘"><a href="#数量积-点乘" class="headerlink" title="数量积(点乘)"></a>数量积(点乘)</h3><p>$\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cdot cos(\theta) = a_x \cdot b_x + a_y \cdot b_y$</p>
+<p>$0 \leq \theta \leq \pi $</p>
+<p>作用： </p>
+<ol>
+<li>可以用来求两向量的夹角。</li>
+<li>$\vec{a} \cdot \vec{b} &lt; 0$ 夹角在$[90,180)$度内</li>
+<li>$\vec{a} \cdot \vec{b} = 0$ 两向量垂直</li>
+<li>$\vec{a} \cdot \vec{b} &gt; 0$ 夹角在$[0,90)$度内</li>
+</ol>
+<h3 id="向量积-叉积"><a href="#向量积-叉积" class="headerlink" title="向量积(叉积)"></a>向量积(叉积)</h3><p>简单地说，两个向量$\vec{v}$和$\vec{w}$的叉积等于$\vec{v}$和$\vec{w}$组成的三角形的有向面积的两倍。</p>
+<p><img src="http://ozrmo3j0k.bkt.clouddn.com/DeepinScreenshot_select-area_20180801182043.png" alt=""></p>
+<p>如果$\vec{w}$在$\vec{v}$的左边，那么$cross(v,w) &gt; 0$</p>
+<p>$|\vec{a} \times \vec{b}| = x_a \times y_b - x_b \times y_a$</p>
+<p>$\vec{c} = \vec{a} \times \vec{b}$</p>
+<p>$|\vec{c}| = |\vec{a}| \cdot |\vec{b}| \cdot sin(\theta)$</p>
+<p>$0 \leq \theta \leq \pi $</p>
+<p>其中$\vec{c}$垂直于$\vec{a},\vec{b}$所组成的平面，满足右手定则。</p>
+<p>几何意义： 以$\vec{a},\vec{b}$为棱的平行四边形面积。</p>
+<p>那么<strong>多边形面积</strong>就可以通过叉积求出。</p>
+<p>一般意义上，竖直向上的符号为正。</p>
+<p><img src="http://ozrmo3j0k.bkt.clouddn.com/2.jpg" alt=""></p>
+<p>$<br>\vec{a} \times \vec{b} = \left| \begin{array}{ccc}<br>\vec{i} &amp; \vec{j} &amp; \vec{k}\\<br>a_x &amp; a_y &amp; a_z\\<br>b_x &amp; b_y &amp; b_z\\<br>\end{array} \right|<br>= (a_y \cdot b_z - a_z \cdot b_y) \cdot \vec{i} + (-a_x \cdot b_z + a_z \cdot b_x) \cdot \vec{j} + (a_x \cdot b_y - a_y \cdot b_x) \cdot \vec{k}<br>$</p>
+<h3 id="混合积"><a href="#混合积" class="headerlink" title="混合积"></a>混合积</h3><p>$<br>\vec{a} \cdot (\vec{b} \times \vec{c}) = \left| \begin{array}{ccc}<br>a_x &amp; a_y &amp; a_z\\<br>b_x &amp; b_y &amp; b_z\\<br>c_x &amp; c_y &amp; c_z\\<br>\end{array} \right|<br>$</p>
+<p>证明：</p>
+<p><img src="http://ozrmo3j0k.bkt.clouddn.com/4.PNG" alt=""></p>
+<p>几何意义为： 以$\vec{a},\vec{b},\vec{c}$为棱的平行六面体的体积。</p>
+<h3 id="Pick定理"><a href="#Pick定理" class="headerlink" title="Pick定理"></a>Pick定理</h3><p>设以整数点为顶点的多边形的面积为S，多边形内部的整数点数为N，多边形边界上的整数点为L，<br>则 S = L/2 + N - 1.</p>
+<h3 id="重要定理"><a href="#重要定理" class="headerlink" title="重要定理"></a>重要定理</h3><h4 id="三点共线定理"><a href="#三点共线定理" class="headerlink" title="三点共线定理"></a>三点共线定理</h4><p>已知O是AB所在直线外一点，若$\vec{OC} = \lambda \cdot \vec{OA} + \mu \cdot \vec{OB}$, 且$\lambda + \mu = 1$，则A，B，C三点共线。</p>
+<p>实际判断其实是用： $\vec{AB} \times \vec{AC} = 0 $，则三点共线</p>
+<h4 id="重心判断式"><a href="#重心判断式" class="headerlink" title="重心判断式"></a>重心判断式</h4><p>在$\Delta ABC$中，若$\vec{GA} + \vec{GB} + \vec{GC} = 0$，则G为$\Delta ABC$的重心。</p>
+<p>重心： 三边中线的交点。</p>
+<h4 id="垂心判断式"><a href="#垂心判断式" class="headerlink" title="垂心判断式"></a>垂心判断式</h4><p>在$\Delta ABC$中，若$\vec{HA} \cdot \vec{HB} = \vec{HB} \cdot \vec{HC} = \vec{HC} \cdot \vec{HA}$，则H为$\Delta ABC$的垂心。</p>
+<p>将三角形分成了面积相等的三块。</p>
+<h4 id="外心判断式"><a href="#外心判断式" class="headerlink" title="外心判断式"></a>外心判断式</h4><p>在$\Delta ABC$中，若$\vec{OA} = \vec{OB} = \vec{OC} $，则O为$\Delta ABC$的外心。</p>
+<p>外心： 垂直平分线的交点。</p>
+<h1 id="模板详解"><a href="#模板详解" class="headerlink" title="模板详解"></a>模板详解</h1><h3 id="判断点是否在线段（直线）上"><a href="#判断点是否在线段（直线）上" class="headerlink" title="判断点是否在线段（直线）上"></a>判断点是否在线段（直线）上</h3><p>其实就是三点共线的问题，解决办法是判断$\vec{AC} \times \vec{AB} = 0$.</p>
+<p>但因为是线段，所以要判断横纵坐标的相应位置。</p>
+<h3 id="判断两线段是否相交"><a href="#判断两线段是否相交" class="headerlink" title="判断两线段是否相交"></a>判断两线段是否相交</h3><p>这里有两个实验：第一个是快速排斥实验，通过判断相应矩形是否相交来快速得到两线段是否相交。</p>
+<p>但可以发现，这不能包含所有情况，因为两个矩形相交不一定能推出两条线段相交。</p>
+<p><img src="http://ozrmo3j0k.bkt.clouddn.com/Geometry_2.jpg" alt=""></p>
+<p>因此就有了跨立实验。</p>
+<p>跨立，顾名思义，就是一条线所在的直线能够切开另一条线段。</p>
+<p>如上面两个图，Q1，Q2所在直线可以跨立P1，P2线段； 但P1，P2所在直线无法跨立Q1，Q2线段， 因此两条线段不相交。</p>
+<p>所以判断两条线段相交需要同时满足两条线段互相跨立的条件。</p>
+<p><img src="http://ozrmo3j0k.bkt.clouddn.com/5.PNG" alt=""></p>
+<h3 id="判断点在多边形中"><a href="#判断点在多边形中" class="headerlink" title="判断点在多边形中"></a>判断点在多边形中</h3><p>射线法：</p>
+<p>设要判断的点为P.</p>
+<p>以P点为起点，水平向左做一条射线，根据射线与多边形的交点个数来判断P是否在多边形内部。</p>
+<p>如果交点个数是奇数的话，说明P点在多边形内部。</p>
+<p><strong>但是！</strong></p>
+<p>会有一些特殊情况：比如图(b),若射线与多边形的交点是顶点的话，需要判断。</p>
+<p>总的来说，步骤如下：</p>
+<p>遍历多边形的每一条边：</p>
+<ol>
+<li>如果P在多边形边上，可直接判断。</li>
+<li>如果射线与多边形的边重合，那么可以直接忽略。</li>
+<li>如果射线和多边形的一边有交点，那么交点数加一。(不包括顶点)</li>
+<li>如果交点是顶点，那么如果这个顶点是该线段上纵坐标较大的顶点，则交点数加一。 否则不作数。</li>
+</ol>
+<p><img src="http://ozrmo3j0k.bkt.clouddn.com/6.PNG" alt=""></p>
+<h3 id="判断线段是否在多边形内"><a href="#判断线段是否在多边形内" class="headerlink" title="判断线段是否在多边形内"></a>判断线段是否在多边形内</h3><p>不会</p>
+<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> zero(x) ((fabs(x) &lt; eps ? 1 : 0))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sgn(x) (fabs(x) &lt; eps ? 0 : ((x) &lt; 0 ? -1 : 1))</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">    point(<span class="keyword">double</span> a = <span class="number">0</span>, <span class="keyword">double</span> b = <span class="number">0</span>) &#123; x = a, y = b; &#125;</span><br><span class="line">    point <span class="keyword">operator</span>-(<span class="keyword">const</span> point&amp; b) <span class="keyword">const</span> &#123; <span class="keyword">return</span> point(x - b.x, y - b.y); &#125;</span><br><span class="line">    point <span class="keyword">operator</span>+(<span class="keyword">const</span> point&amp; b) <span class="keyword">const</span> &#123; <span class="keyword">return</span> point(x + b.x, y + b.y); &#125;</span><br><span class="line">    <span class="comment">// 两点是否重合</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>==(point&amp; b) &#123; <span class="keyword">return</span> zero(x - b.x) &amp;&amp; zero(y - b.y); &#125;</span><br><span class="line">    <span class="comment">// 点积(以原点为基准)</span></span><br><span class="line">    <span class="keyword">double</span> <span class="keyword">operator</span>*(<span class="keyword">const</span> point&amp; b) <span class="keyword">const</span> &#123; <span class="keyword">return</span> x * b.x + y * b.y; &#125;</span><br><span class="line">    <span class="comment">// 叉积(以原点为基准)</span></span><br><span class="line">    <span class="keyword">double</span> <span class="keyword">operator</span>^(<span class="keyword">const</span> point&amp; b) <span class="keyword">const</span> &#123; <span class="keyword">return</span> x * b.y - y * b.x; &#125;</span><br><span class="line">    <span class="comment">// 绕P点逆时针旋转a弧度后的点</span></span><br><span class="line">    <span class="function">point <span class="title">rotate</span><span class="params">(point b, <span class="keyword">double</span> a)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> dx, dy;</span><br><span class="line">        (*<span class="keyword">this</span> - b).split(dx, dy);</span><br><span class="line">        <span class="keyword">double</span> tx = dx * <span class="built_in">cos</span>(a) - dy * <span class="built_in">sin</span>(a);</span><br><span class="line">        <span class="keyword">double</span> ty = dx * <span class="built_in">sin</span>(a) + dy * <span class="built_in">cos</span>(a);</span><br><span class="line">        <span class="keyword">return</span> point(tx, ty) + b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 点坐标分别赋值到a和b</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">split</span><span class="params">(<span class="keyword">double</span>&amp; a, <span class="keyword">double</span>&amp; b)</span> </span>&#123; a = x, b = y; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">line</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    point s, e;</span><br><span class="line">    line() &#123;&#125;</span><br><span class="line">    line(point ss, point ee) &#123; s = ss, e = ee; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dist</span><span class="params">(point a, point b)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">sqrt</span>((a - b) * (a - b)); &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// &lt;0, *&gt; 表示重合; &lt;1, *&gt; 表示平行; &lt;2, P&gt; 表示交点是P;</span></span><br><span class="line">pair&lt;<span class="keyword">int</span>, point&gt; spoint(line l1, line l2)</span><br><span class="line">&#123;</span><br><span class="line">    point res = l1.s;</span><br><span class="line">    <span class="keyword">if</span> (sgn((l1.s - l1.e) ^ (l2.s - l2.e)) == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> make_pair(sgn((l1.s - l2.e) ^ (l2.s - l2.e)) != <span class="number">0</span>, res);</span><br><span class="line">    <span class="keyword">double</span> t = ((l1.s - l2.s) ^ (l2.s - l2.e)) / ((l1.s - l1.e) ^ (l2.s - l2.e));</span><br><span class="line">    res.x += (l1.e.x - l1.s.x) * t;</span><br><span class="line">    res.y += (l1.e.y - l1.s.y) * t;</span><br><span class="line">    <span class="keyword">return</span> make_pair(<span class="number">2</span>, res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速排斥实验 + 跨立实验</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">segxseg</span><span class="params">(line l1, line l2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">        max(l1.s.x, l1.e.x) &gt;= min(l2.s.x, l2.e.x) &amp;&amp;</span><br><span class="line">        max(l2.s.x, l2.e.x) &gt;= min(l1.s.x, l1.e.x) &amp;&amp;</span><br><span class="line">        max(l1.s.y, l1.e.y) &gt;= min(l2.s.y, l2.e.y) &amp;&amp;</span><br><span class="line">        max(l2.s.y, l2.e.y) &gt;= min(l1.s.y, l1.e.y) &amp;&amp;</span><br><span class="line">        sgn((l2.s - l1.e) ^ (l1.s - l1.e)) * sgn((l2.e-l1.e) ^ (l1.s - l1.e)) &lt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        sgn((l1.s - l2.e) ^ (l2.s - l2.e)) * sgn((l1.e-l2.e) ^ (l2.s - l2.e)) &lt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//l1是直线,l2是线段</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">segxline</span><span class="params">(line l1, line l2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sgn((l2.s - l1.e) ^ (l1.s - l1.e)) * sgn((l2.e - l1.e) ^ (l1.s - l1.e)) &lt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">point <span class="title">pointtoline</span><span class="params">(point P, line L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    point res;</span><br><span class="line">    <span class="keyword">double</span> t = ((P - L.s) * (L.e - L.s)) / ((L.e - L.s) * (L.e - L.s));</span><br><span class="line">    res.x = L.s.x + (L.e.x - L.s.x) * t, res.y = L.s.y + (L.e.y - L.s.y) * t;</span><br><span class="line">    <span class="keyword">return</span> dist(P, res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">point <span class="title">pointtosegment</span><span class="params">(point p, line l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    point res;</span><br><span class="line">    <span class="keyword">double</span> t = ((p - l.s) * (l.e - l.s)) / ((l.e - l.s) * (l.e - l.s));</span><br><span class="line">    <span class="keyword">if</span> (t &gt;= <span class="number">0</span> &amp;&amp; t &lt;= <span class="number">1</span>)</span><br><span class="line">        res.x = l.s.x + (l.e.x - l.s.x) * t, res.y = l.s.y + (l.e.y - l.s.y) * t;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        res = dist(p, l.s) &lt; dist(p, l.e) ? l.s : l.e;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">PointOnSeg</span><span class="params">(point p, line l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">        sgn((l.s - p) ^ (l.e-p)) == <span class="number">0</span> &amp;&amp;</span><br><span class="line">        sgn((p.x - l.s.x) * (p.x - l.e.x)) &lt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">        sgn((p.y - l.s.y) * (p.y - l.e.y)) &lt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">area</span><span class="params">(point p[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) res += (p[i] ^ p[(i + <span class="number">1</span>) % n]) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fabs</span>(res);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 点形成一个凸包, 而且按逆时针排序(如果是顺时针把里面的&lt;0改为&gt;0)</span></span><br><span class="line"><span class="comment">// 点的编号 : [0,n)</span></span><br><span class="line"><span class="comment">// -1 : 点在凸多边形外</span></span><br><span class="line"><span class="comment">// 0  : 点在凸多边形边界上</span></span><br><span class="line"><span class="comment">// 1  : 点在凸多边形内</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">PointInConvex</span><span class="params">(point a, point p[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">if</span> (sgn((p[i] - a) ^ (p[(i + <span class="number">1</span>) % n] - a)) &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (PointOnSeg(a, line(p[i], p[(i + <span class="number">1</span>) % n])))</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 射线法,poly[]的顶点数要大于等于3,点的编号0~n-1</span></span><br><span class="line"><span class="comment">// -1 : 点在多边形外</span></span><br><span class="line"><span class="comment">// 0  : 点在多边形边界上</span></span><br><span class="line"><span class="comment">// 1  : 点在多边形内</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">PointInPoly</span><span class="params">(point p, point poly[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt;</span><br><span class="line">    line ray, side;</span><br><span class="line">    cnt = <span class="number">0</span>;</span><br><span class="line">    ray.s = p;</span><br><span class="line">    ray.e.y = p.y;</span><br><span class="line">    ray.e.x = <span class="number">-100000000000.0</span>; <span class="comment">// -INF,注意取值防止越界</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        side.s = poly[i], side.e = poly[(i + <span class="number">1</span>) % n];</span><br><span class="line">        <span class="keyword">if</span> (PointOnSeg(p, side)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//如果平行轴则不考虑</span></span><br><span class="line">        <span class="keyword">if</span> (sgn(side.s.y - side.e.y) == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span> (PointOnSeg(sid e.s, ray))</span><br><span class="line">            cnt += (sgn(side.s.y - side.e.y) &gt; <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (PointOnSeg(side.e, ray))</span><br><span class="line">            cnt += (sgn(side.e.y - side.s.y) &gt; <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (segxseg(ray, side))</span><br><span class="line">            cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt % <span class="number">2</span> == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 线段上整数点个数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">OnSegment</span><span class="params">(line l)</span> </span>&#123; <span class="keyword">return</span> __gcd(<span class="built_in">fabs</span>(l.s.x - l.e.x), <span class="built_in">fabs</span>(l.s.y - l.e.y)) + <span class="number">1</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多边形边界上整数点个数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">OnEdge</span><span class="params">(point p[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        ret += __gcd(<span class="built_in">fabs</span>(p[i].x - p[(i + <span class="number">1</span>) % n].x), <span class="built_in">fabs</span>(p[i].y - p[(i + <span class="number">1</span>) % n].y));</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多边形内部整数点个数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">InSide</span><span class="params">(point p[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, area = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        area += p[(i + <span class="number">1</span>) % n].y * (p[i].x - p[(i + <span class="number">2</span>) % n].x);</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">fabs</span>(area) - OnEdge(n, p)) / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">point <span class="title">waixin</span><span class="params">(point a, point b, point c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a1 = b.x - a.x, b1 = b.y - a.y, c1 = (a1 * a1 + b1 * b1) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> a2 = c.x - a.x, b2 = c.y - a.y, c2 = (a2 * a2 + b2 * b2) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">double</span> d = a1 * b2 - a2 * b1;</span><br><span class="line">    <span class="keyword">return</span> point(a.x + (c1 * b2 - c2 * b1) / d, a.y + (a1 * c2 - a2 * c1) / d);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 刘老师的板子</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">    Point(<span class="keyword">double</span> x = <span class="number">0</span>, <span class="keyword">double</span> y = <span class="number">0</span>) : x(x), y(y) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> Point Vec;</span><br><span class="line"></span><br><span class="line">Vec <span class="keyword">operator</span>+(Vec A, Vec B) &#123; <span class="keyword">return</span> Vec(A.x + B.x, A.y + B.y); &#125;</span><br><span class="line">Vec <span class="keyword">operator</span>-(Vec A, Vec B) &#123; <span class="keyword">return</span> Vec(A.x - B.x, A.y - B.y); &#125;</span><br><span class="line">Vec <span class="keyword">operator</span>*(Vec A, <span class="keyword">double</span> p) &#123; <span class="keyword">return</span> Vec(A.x * p, A.y * p); &#125;</span><br><span class="line">Vec <span class="keyword">operator</span>/(Vec A, <span class="keyword">double</span> p) &#123; <span class="keyword">return</span> Vec(A.x / p, A.y / p); &#125;</span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Point&amp; a, <span class="keyword">const</span> Point&amp; b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.x &lt; b.x || (a.x == b.x &amp;&amp; a.y &lt; b.y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dcmp</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">fabs</span>(x) &lt; eps)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> x &lt; <span class="number">0</span> ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>==(<span class="keyword">const</span> Point&amp; a, <span class="keyword">const</span> Point&amp; b) &#123;</span><br><span class="line">    <span class="keyword">return</span> dcmp(a.x - b.x) == <span class="number">0</span> &amp;&amp; dcmp(a.y - b.y) == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">PolarAngle</span><span class="params">(Point A)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">atan2</span>(A.y, A.x); &#125;  <span class="comment">// 极角</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Dot</span><span class="params">(Vec A, Vec B)</span> </span>&#123; <span class="keyword">return</span> A.x * B.x + A.y * B.y; &#125;  <span class="comment">// 点积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Length</span><span class="params">(Vec A)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">sqrt</span>(Dot(A, A)); &#125;            <span class="comment">// 向量长度</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Angle</span><span class="params">(Vec A, Vec B)</span> </span>&#123;                                <span class="comment">// 两向量夹角</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">acos</span>(Dot(A, B) / Length(A) / Length(B));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(Vec A, Vec B)</span> </span>&#123; <span class="keyword">return</span> A.x * B.y - A.y * B.x; &#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Area2</span><span class="params">(Point A, Point B, Point C)</span> </span>&#123;  <span class="comment">// 平行四边形面积</span></span><br><span class="line">    <span class="keyword">return</span> Cross(B - A, C - A);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Vec <span class="title">Rotate</span><span class="params">(Vec A, <span class="keyword">double</span> rad)</span> </span>&#123;  <span class="comment">// 向量绕起点逆时针旋转rad</span></span><br><span class="line">    <span class="keyword">return</span> Vec(A.x * <span class="built_in">cos</span>(rad) - A.y * <span class="built_in">sin</span>(rad),</span><br><span class="line">               A.x * <span class="built_in">sin</span>(rad) + A.y * <span class="built_in">cos</span>(rad));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 向量的单位法线，即左转90度后把长度归一化（要确保A不是零向量）</span></span><br><span class="line"><span class="function">Vec <span class="title">Normal</span><span class="params">(Vec A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> L = Length(A);</span><br><span class="line">    <span class="keyword">return</span> Vec(-A.y / L, A.x / L);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 两直线交点，调用前要确保直线P + tv和Q + tw有唯一交点，当且仅当Cross(v,w)!=0</span></span><br><span class="line"><span class="function">Point <span class="title">GetLineItersection</span><span class="params">(Point P, Vec v, Point Q, Vec w)</span> </span>&#123;</span><br><span class="line">    Vec u = P - Q;</span><br><span class="line">    <span class="keyword">double</span> t = Cross(w, u) / Cross(v, w);</span><br><span class="line">    <span class="keyword">return</span> P + v * t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// P 到直线AB的距离</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">DistanceToLine</span><span class="params">(Point P, Point A, Point B)</span> </span>&#123;</span><br><span class="line">    Vec v1 = B - A, v2 = P - A;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">fabs</span>(Cross(v1, v2) /</span><br><span class="line">                Length(v1));  <span class="comment">// 如果不取绝对值，得到的是有向距离</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">DistanceToSegment</span><span class="params">(Point P, Point A, Point B)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (A == B) <span class="keyword">return</span> Length(P - A);</span><br><span class="line">    Vec v1 = B - A, v2 = P - A, v3 = P - B;</span><br><span class="line">    <span class="keyword">if</span> (dcmp(Dot(v1, v2)) &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> Length(v2);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (dcmp(Dot(v1, v3)) &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> Length(v3);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fabs</span>(Cross(v1, v2)) / Length(v1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 求点与线段距离的交点</span></span><br><span class="line"><span class="function">Point <span class="title">GetLineProjection</span><span class="params">(Point P, Point A, Point B)</span> </span>&#123;</span><br><span class="line">    Vec v = B - A;</span><br><span class="line">    <span class="keyword">return</span> A + v * (Dot(v, P - A) / Dot(v, v));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 规范相交： 两线段只有一个交点，且不在任何一条线段的断点</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SegmentProperIntersection</span><span class="params">(Point a1, Point a2, Point b1, Point b2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> c1 = Cross(a2 - a1, b1 - a1), c2 = Cross(a2 - a1, b2 - a1),</span><br><span class="line">           c3 = Cross(b2 - b1, a1 - b1), c4 = Cross(b2 - b1, a2 - b1);</span><br><span class="line">    <span class="keyword">return</span> dcmp(c1) * dcmp(c2) &lt; <span class="number">0</span> &amp;&amp; dcmp(c3) * dcmp(c4) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 点是否在线段上(不包括端点)</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">OnSegment</span><span class="params">(Point p, Point a1, Point a2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> dcmp(Cross(a1 - p, a2 - p)) == <span class="number">0</span> &amp;&amp; dcmp(Dot(a1 - p, a2 - p)) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多边形的有向面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">PolygonArea</span><span class="params">(Point* p, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> area = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n - <span class="number">1</span>; i++) area += Cross(p[i] - p[<span class="number">0</span>], p[i + <span class="number">1</span>] - p[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> area / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Thank you for your support!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/ybmj.png" alt="YBMJ WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/30/2018hdu多校第三场/" rel="next" title="2018hdu多校第三场">
+                <i class="fa fa-chevron-left"></i> 2018hdu多校第三场
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/02/uva11178-Morley-s-Theorem角平分线交点/" rel="prev" title="uva11178-Morley's Theorem角平分线交点">
+                uva11178-Morley's Theorem角平分线交点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQ1NS8xMTk5MQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">YBMJ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">144</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ybmj" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#极坐标"><span class="nav-number">1.0.1.</span> <span class="nav-text">极坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角形"><span class="nav-number">1.0.2.</span> <span class="nav-text">三角形</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#余弦公式"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">余弦公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正弦公式"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">正弦公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向量的减法"><span class="nav-number">1.0.3.</span> <span class="nav-text">向量的减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数量积-点乘"><span class="nav-number">1.0.4.</span> <span class="nav-text">数量积(点乘)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向量积-叉积"><span class="nav-number">1.0.5.</span> <span class="nav-text">向量积(叉积)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合积"><span class="nav-number">1.0.6.</span> <span class="nav-text">混合积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pick定理"><span class="nav-number">1.0.7.</span> <span class="nav-text">Pick定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要定理"><span class="nav-number">1.0.8.</span> <span class="nav-text">重要定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三点共线定理"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">三点共线定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重心判断式"><span class="nav-number">1.0.8.2.</span> <span class="nav-text">重心判断式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂心判断式"><span class="nav-number">1.0.8.3.</span> <span class="nav-text">垂心判断式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外心判断式"><span class="nav-number">1.0.8.4.</span> <span class="nav-text">外心判断式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板详解"><span class="nav-number">2.</span> <span class="nav-text">模板详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断点是否在线段（直线）上"><span class="nav-number">2.0.1.</span> <span class="nav-text">判断点是否在线段（直线）上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断两线段是否相交"><span class="nav-number">2.0.2.</span> <span class="nav-text">判断两线段是否相交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断点在多边形中"><span class="nav-number">2.0.3.</span> <span class="nav-text">判断点在多边形中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断线段是否在多边形内"><span class="nav-number">2.0.4.</span> <span class="nav-text">判断线段是否在多边形内</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板"><span class="nav-number">3.</span> <span class="nav-text">模板</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YBMJ</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65592659";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'uNA0DvdpgdBobRBt1UA5EaWj-gzGzoHsz',
+        appKey: 'wbsXRXRUnp6ENNaKNzUnGBNm',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
