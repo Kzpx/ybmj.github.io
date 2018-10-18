@@ -5,7 +5,7 @@ date: 2018-03-09 15:20:36
 categories:
 - ACM
 - 图论
-- 最小生成树
+- 生成树
 ---
 
 # kruskal
